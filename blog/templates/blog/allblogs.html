@@ -29,7 +29,7 @@
             <a class="nav-item nav-link" href="#">Twitter</a>
             <a class="nav-item nav-link" href="#">LinkedIn</a>
             <a class="nav-item nav-link" href="#">Resume</a>
-            <a class="nav-item nav-link active" href="#">Blog</a>
+            <a class="nav-item nav-link active" href="/blog/">Blog</a>
 
           </div>
         </div>
@@ -49,12 +49,12 @@
       <div class='col'>
         {% for blog in blogs.all %}
         <div class='container'>
-        <p>{{blog.pub_date}}</p>
+        <p>{{blog.pub_time_better}}</p>
         <img class="img-fluid" src="{{blog.image.url}}" alt="Place to set your image" height=200 width=200/>
           <div class="media-body">
             <br/>
             <a href=""><h3 class="mt-0">{{ blog.title }}</h3></a>
-            <p>{{blog.body}}</p>
+            <p>{{blog.summary}}</p>
 
         </div>
       </div>
