@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+
 
     <title>Bartosz Piotr Baranowski presents ... </title>
 
@@ -19,17 +20,16 @@
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="">Bartosz Piotr Baranowski</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Bartosz Piotr Baranowski</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link " href="#"> Facebook</a>
-            <a class="nav-item nav-link" href="#">Twitter</a>
-            <a class="nav-item nav-link" href="#">LinkedIn</a>
-            <a class="nav-item nav-link" href="#">Resume</a>
-            <a class="nav-item nav-link active" href="/blog/">Blog</a>
+            <a class="nav-item nav-link" href="http://twitter.com/BPBaranowsky">Twitter</a>
+            <a class="nav-item nav-link" href="https://www.linkedin.com/in/bartosz-baranowski-b49867ab/">LinkedIn</a>
+            <a class="nav-item nav-link" href="{% static 'fake_CV.pdf' %}">Resume</a>
+            <a class="nav-item nav-link active" href= "{% url 'allblogs' %}">Blog</a>
 
           </div>
         </div>
@@ -49,11 +49,11 @@
       <div class='col'>
         {% for blog in blogs.all %}
         <div class='container'>
-        <p>{{blog.pub_time_better}}</p>
+        <a href="{% url 'detail' blog.id %}"><h2 class="mt-0">{{ blog.title }}</h2></a>
+        <p><small>{{blog.pub_time_better}}</small></p>
         <img class="img-fluid" src="{{blog.image.url}}" alt="Place to set your image" height=200 width=200/>
           <div class="media-body">
-            <br/>
-            <a href=""><h3 class="mt-0">{{ blog.title }}</h3></a>
+
             <p>{{blog.summary}}</p>
 
         </div>
