@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,7 +29,7 @@
             <a class="nav-item nav-link " href="#"> Facebook</a>
             <a class="nav-item nav-link" href="#">Twitter</a>
             <a class="nav-item nav-link" href="#">LinkedIn</a>
-            <a class="nav-item nav-link" href="#">Resume</a>
+            <a class="nav-item nav-link" href="{% static 'fake_CV.pdf' %}">Resume</a>
             <a class="nav-item nav-link" href="/blog/">Blog</a>
 
           </div>
@@ -45,6 +46,7 @@
           <p>
             <a href="mailto:bartosz.piotr.baranowski@gmail.com?subject=Your awesome site!"class="btn btn-primary my-2">Email Me! </a>
           </p>
+          <image src="{% static 'user_4451291_cb20c3_huge.jpg' %}" height=300 />
         </div>
       </section>
 
